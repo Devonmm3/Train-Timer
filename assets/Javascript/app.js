@@ -32,7 +32,7 @@ $("#addTrainButton").on("click", function(event) {
   )
     .subtract(1, "years")
     .format("");
-  var trainFrequencyInput = $("#trainsFrequecyInput")
+  var trainFrequencyInput = $("#trainsFrequencyInput")
     .val()
     .trim();
 
@@ -66,7 +66,7 @@ database.ref().on("child_added", function(childSnapshot, previousChildKey) {
   console.log(childSnapshot.val());
 
   var FirebaseTrainsName = childSnapshot.val().name;
-  var FirebaseTrainsLine = childSnapshot.val().Line;
+  var FirebaseTrainsLine = childSnapshot.val().line;
   var FirebaseDestination = childSnapshot.val().Destination;
   var firebaseTrainTimeInput = childSnapshot.val().start;
   var firebaseTrainFrequency = childSnapshot.val().frequency;
