@@ -71,7 +71,7 @@ database.ref().on("child_added", function(childSnapshot, previousChildKey) {
   var firebaseTrainTimeInput = childSnapshot.val().start;
   var firebaseTrainFrequency = childSnapshot.val().frequency;
 
-  var diffTime = moment().diff(moment.unix(firebaseTrainTimeInput), "minutes");
+  var diffTime = moment().diff(moment(firebaseTrainTimeInput), "minutes");
   var remainder = diffTime % firebaseTrainFrequency;
   var minutes = firebaseTrainFrequency - remainder;
 
@@ -95,11 +95,9 @@ database.ref().on("child_added", function(childSnapshot, previousChildKey) {
       "</td><td>" +
       firebaseTrainFrequency +
       "</td><td>" +
-      "mins" +
-      "</td><td>" +
       nextTrain +
       "</td><td>" +
       minutes +
-      "</td></tr"
+      "</td></tr>"
   );
 });
